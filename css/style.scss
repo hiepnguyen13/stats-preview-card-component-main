@@ -1,0 +1,297 @@
+:root {
+  --clr-body-bg: hsl(233, 47%, 7%);
+  --clr-card-bg: hsl(244, 38%, 16%);
+  --clr-accent: hsl(277, 64%, 61%);
+
+  --clr-main-hd: hsl(0, 0%, 100%);
+  --clr-main-p: hsla(0, 0%, 100%, 0.75);
+  --clr-sub-hd: hsla(0, 0%, 100%, 0.6);
+
+  --ff-int: 'Inter', sans-serif;
+  --ff-lex: 'Lexend Deca', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+body {
+  font-family: var(--ff-lex);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+
+  background: var(--clr-body-bg);
+
+  padding: 6em 1.5em;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  overflow: hidden;
+
+  margin-bottom: 1em;
+}
+
+.image-content {
+  background: var(--clr-accent);
+
+  .img--desktop {
+    display: none;
+  }
+
+  .img--mobile {
+    display: block;
+    max-width: 100%;
+    mix-blend-mode: multiply;
+  }
+}
+
+.flex-box {
+  background: var(--clr-card-bg);
+}
+
+.text-content {
+  padding: 3em 1em;
+  text-align: center;
+
+  h1 {
+    font-family: var(--ff-int);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--clr-main-hd);
+
+    max-width: 400px;
+    margin: 0 auto;
+
+    span {
+      color: var(--clr-accent);
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--clr-main-p);
+    padding: 1.5em 0 3em;
+
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .data-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h3 {
+        font-family: var(--ff-int);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--clr-main-hd);
+      }
+
+      span {
+        font-size: 0.8rem;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+    }
+
+    div + div {
+      margin-top: 1.5em;
+    }
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .text-content {
+    .data-items {
+      flex-direction: row;
+
+      div + div {
+        margin-top: 0;
+        margin-left: 2.5em;
+      }
+    }
+  }
+}
+
+@media only screen and(min-width: 670px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    max-width: 80%;
+    flex-direction: row;
+
+    & > div {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+
+      &:last-of-type {
+        align-items: center;
+      }
+    }
+
+    .image-content {
+      order: 1;
+
+      .img--desktop {
+        display: block;
+        max-width: 100%;
+        mix-blend-mode: multiply;
+      }
+
+      .img--mobile {
+        display: none;
+      }
+    }
+
+    .text-content {
+      padding: 2em;
+      text-align: left;
+
+      h1 {
+        font-size: 1.3rem;
+        max-width: 100%;
+      }
+
+      p {
+        font-size: 0.6rem;
+        max-width: 100%;
+      }
+      .data-items {
+        justify-content: flex-start;
+
+        & > div {
+          h3 {
+            font-size: 1rem;
+          }
+
+          span {
+            font-size: 0.6rem;
+          }
+        }
+
+        div + div {
+          margin-left: 1em;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and(min-width: 800px) {
+  .container {
+    .text-content {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+      .data-items {
+        & > div {
+          h3 {
+            font-size: 1.1rem;
+          }
+
+          span {
+            font-size: 0.7rem;
+          }
+        }
+
+        div + div {
+          margin-left: 2em;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and(min-width: 1000px) {
+  .container {
+    .text-content {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+      .data-items {
+        & > div {
+          h3 {
+            font-size: 1.3rem;
+          }
+
+          span {
+            font-size: 0.8rem;
+          }
+        }
+
+        div + div {
+          margin-left: 3em;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and(min-width: 1200px) {
+  .container {
+    max-width: 960px;
+    .text-content {
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+        padding: 2em 0 3em;
+      }
+      .data-items {
+        & > div {
+          h3 {
+            font-size: 1.6rem;
+          }
+
+          span {
+            font-size: 0.9rem;
+          }
+        }
+
+        div + div {
+          margin-left: 4em;
+        }
+      }
+    }
+  }
+}
